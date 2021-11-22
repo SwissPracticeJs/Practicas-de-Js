@@ -134,3 +134,30 @@ const negociosConProductos = [
         ]
     }
 ]
+
+// Tipo de salida de esta función es una LISTA
+function productosMayoresA90 (){
+    return productos.filter(obj => obj.precio >= 90)
+}
+
+//Dificultad: Si lo haces combinado al punto 1 debería ser Medio/dificil. Si no sale dejalo y lo vemos después
+//2) Usando la función del punto 1. Quedarse con los productos con precio mayor a 90 y que además sean comestibles
+//IMPORTANTE: intentar hacer una función que resuelva lo del punto 1 y crear otra función para el punto 2,
+//donde agarre por variable lo que devuelve la función del punto 1.
+
+
+function productosMayores90YComestibles (){
+    return productosMayoresA90().filter(obj => obj.comestible)
+}
+
+console.log(productosMayores90YComestibles())
+
+//3) De la lista productos obtener una lista de los nombres de todos los productos (ver que mensaje se le puede aplicar a la lista, hay que transformar la lista)
+//oBJETO.MENSAJE(ARGUMENTOS)
+
+function listaDeTodosLosProductos (){
+     return productos.map(obj => obj.name)
+
+}
+
+console.log (listaDeTodosLosProductos())
