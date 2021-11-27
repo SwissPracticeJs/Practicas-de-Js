@@ -114,7 +114,7 @@ const negociosConProductos = [
             {
                 name: "Proteina",
                 precio: 550,
-                comestible: true, // Hagamos de cuenta que es comestible
+                comestible: false,
             },
             {
                 name: "Cinta para correr",
@@ -150,14 +150,35 @@ function productosMayores90YComestibles (){
     return productosMayoresA90().filter(obj => obj.comestible)
 }
 
-console.log(productosMayores90YComestibles())
+//console.log(productosMayores90YComestibles())
 
 //3) De la lista productos obtener una lista de los nombres de todos los productos (ver que mensaje se le puede aplicar a la lista, hay que transformar la lista)
 //oBJETO.MENSAJE(ARGUMENTOS)
 
 function listaDeTodosLosProductos (){
      return productos.map(obj => obj.name)
-
 }
 
-console.log (listaDeTodosLosProductos())
+function filtro(negocio){
+    return negocio.ubicacion === "Lanus"
+}
+
+function negociosDeLanus(){
+    //return negociosConProductos.filter(filtro)
+    return negociosConProductos.filter(negocio => negocio.ubicacion === "Lanus")
+}
+
+function productosComestibles(listaDeProductos){
+    return listaDeProductos.some(producto => producto.comestible)
+}
+
+function negociosConAlMenosUnComestible(){
+    return negociosConProductos.filter(negocio => negocio.productos.some(producto => producto.comestible))
+    //return negociosConProductos.filter(negocio => productosComestibles(negocio.productos))
+}
+
+console.log(negociosConAlMenosUnComestible())
+
+//console.log (listaDeTodosLosProductos())
+
+// 4) Obtener los negocios que se encuentran en Lanus
