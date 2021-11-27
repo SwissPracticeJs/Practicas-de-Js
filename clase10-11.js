@@ -58,6 +58,7 @@ const negociosConProductos = [
     {
         nombre: "Almacén Don Carlos",
         ubicacion: "Isidro Casanova",
+        zona: "Oeste",
         productos: [
             {
                 name: "manzana",
@@ -84,11 +85,13 @@ const negociosConProductos = [
     {
         nombre: "Carnicería de Joaquin",
         ubicacion: "Castelar",
+        zona: "Oeste",
         productos: [
             {
                 name: "Higado",
                 precio: 350,
                 comestible: true,
+                material: ""
             },
             {
                 name: "Colita de cuadril",
@@ -110,6 +113,7 @@ const negociosConProductos = [
     {
         nombre: "Gym de Juli",
         ubicacion: "Lanus",
+        zona: "Sur",
         productos: [
             {
                 name: "Proteina",
@@ -177,8 +181,51 @@ function negociosConAlMenosUnComestible(){
     //return negociosConProductos.filter(negocio => productosComestibles(negocio.productos))
 }
 
-console.log(negociosConAlMenosUnComestible())
+//console.log(negociosConAlMenosUnComestible())
 
 //console.log (listaDeTodosLosProductos())
 
 // 4) Obtener los negocios que se encuentran en Lanus
+
+
+function sumarNVecesUnNumero(numero){
+    //Caso base
+    if(numero === 1){
+        return 1
+    }
+
+    return numero + sumarNVecesUnNumero(numero - 1)
+}
+//console.log(sumarNVecesUnNumero(6))
+
+function potenciaDeUnNumero(numero, potencia){
+    if(potencia === 1){
+        return numero
+    }
+    return numero * potenciaDeUnNumero(numero, potencia - 1)
+}
+
+//console.log(potenciaDeUnNumero(3,4))
+
+function productosDeNegociosMayoresA90(){
+    return negociosConProductos.map(negocio => negocio.productos.filter(producto => producto.precio >= 90))
+}
+
+//console.log(productosDeNegociosMayoresA90())
+
+function elCarero(){
+    return negociosConProductos.find(negocio => negocio.productos.every(producto => producto.precio >= 200))
+}
+
+//console.log(elCarero())
+
+function logeas(info){
+
+    nombre = info.nombre
+    apellido = info.apellido || ''
+    edad = info.edad
+
+    return apellido.length
+}
+
+//console.log(logeas({nombre:'Julieta', edad:'32'}))
